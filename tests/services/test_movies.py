@@ -24,7 +24,7 @@ def movie_dao():
 
 
 class TestMovieService:
-    @pytest.fixture(autose=True)
+    @pytest.fixture(autouse=True)
     def movie_service(self, movie_dao):
         self.movie_service = MovieService(dao=movie_dao)
 
@@ -50,7 +50,7 @@ class TestMovieService:
     def test_delete(self):
         self.movie_service.delete(1)
 
-    def update(self):
+    def test_update(self):
         movie_new = {"title": "film1",
                      "description": "description_1",
                      "trailer": "trailer_1",
